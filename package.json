@@ -6,14 +6,27 @@
   "license": "MIT",
   "author": "Alex Ortiz-Rosado <alexortizrosado@gmail.com>",
   "homepage": "https://the-one-api.dev/",
+  "main": "lotr-api.js",
+  "types": "lotr-api.d.ts",
+  "files": [
+    "lotr-api.d.ts",
+    "lotr-api.js",
+    "lotr-api.js.map"
+  ],
   "scripts": {
     "compile": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint \"**/*.ts\""
+    "lint": "eslint \"**/*.ts\"",
+    "make-bundle": "rollup --configPlugin @rollup/plugin-typescript --config",
+    "build": "rm -rf build/compiled/* && npm run compile && npm run make-bundle"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
-    "eslint": "^8.26.0"
+    "eslint": "^8.26.0",
+    "rollup": "^3.2.5",
+    "rollup-plugin-dts": "^5.0.0"
   }
 }
