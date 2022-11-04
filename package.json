@@ -1,0 +1,19 @@
+{
+  "name": "alexortizrosado-sdk",
+  "version": "2022.00.01",
+  "description": "Typescript SDK for the The Lord of the Rings API - The One API that rules them all",
+  "repository": "https://github.com/alexortizrosado/alexortizrosado-SDK",
+  "license": "MIT",
+  "author": "Alex Ortiz-Rosado <alexortizrosado@gmail.com>",
+  "homepage": "https://the-one-api.dev/",
+  "scripts": {
+    "compile": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"**/*.ts\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0"
+  }
+}
