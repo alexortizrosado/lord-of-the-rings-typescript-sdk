@@ -24,7 +24,7 @@ const books = await client.Book.catalog({
 });
 ```
 
-To get a get a quotes from a character:
+To get a list of quotes from a character:
 
 ```js
 import { LotrApi } from "@alexortizrosado/lord-of-the-rings-sdk";
