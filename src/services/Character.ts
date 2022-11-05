@@ -2,6 +2,7 @@ import { AxiosError, AxiosInstance } from "axios";
 import { generateError } from "../Error";
 import { ApiResponse } from "../types/ApiResponse";
 import { Character as CharacterType } from "../types/Character";
+import { encodeRequestOptions, RequestOptions } from "../types/RequestOptions";
 
 export class Character {
   private readonly client: AxiosInstance;
@@ -20,9 +21,13 @@ export class Character {
     return response?.data.docs[0];
   }
 
-  async catalog(): Promise<ApiResponse<CharacterType[]>> {
+  async catalog(
+    options?: RequestOptions<CharacterType>
+  ): Promise<ApiResponse<CharacterType[]>> {
     const response = await this.client
-      .get(`${Character.basePath}`)
+      .get(
+        `${Character.basePath}${encodeRequestOptions<CharacterType>(options)}`
+      )
       .catch((error: AxiosError) => {
         generateError(error);
       });

@@ -2,6 +2,7 @@ import { AxiosError, AxiosInstance } from "axios";
 import { generateError } from "../Error";
 import { ApiResponse } from "../types/ApiResponse";
 import { Movie as MovieType } from "../types/Movie";
+import { encodeRequestOptions, RequestOptions } from "../types/RequestOptions";
 
 export class Movie {
   private readonly client: AxiosInstance;
@@ -20,9 +21,11 @@ export class Movie {
     return response?.data.docs[0];
   }
 
-  async catalog(): Promise<ApiResponse<MovieType[]>> {
+  async catalog(
+    options?: RequestOptions<MovieType>
+  ): Promise<ApiResponse<MovieType[]>> {
     const response = await this.client
-      .get(`${Movie.basePath}`)
+      .get(`${Movie.basePath}${encodeRequestOptions<MovieType>(options)}`)
       .catch((error: AxiosError) => {
         generateError(error);
       });

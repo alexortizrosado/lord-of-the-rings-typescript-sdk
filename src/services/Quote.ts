@@ -4,6 +4,7 @@ import { Character } from "./Character";
 import { generateError } from "../Error";
 import { Movie } from "./Movie";
 import { Quote as QuoteType } from "../types/Quote";
+import { encodeRequestOptions, RequestOptions } from "../types/RequestOptions";
 
 export class Quote {
   private readonly client: AxiosInstance;
@@ -22,27 +23,40 @@ export class Quote {
     return response?.data.docs[0];
   }
 
-  async catalog(): Promise<ApiResponse<QuoteType[]>> {
+  async catalog(
+    options?: RequestOptions<QuoteType>
+  ): Promise<ApiResponse<QuoteType[]>> {
     const response = await this.client
-      .get(`${Quote.basePath}`)
+      .get(`${Quote.basePath}${encodeRequestOptions(options)}`)
       .catch((error: AxiosError) => {
         generateError(error);
       });
     return response?.data;
   }
 
-  async getQuotesByCharacter(characterId: string) {
+  async getQuotesByCharacter(
+    characterId: string,
+    options?: RequestOptions<QuoteType>
+  ) {
     const response = await this.client
-      .get(`${Character.basePath}/${characterId}/${Quote.basePath}`)
+      .get(
+        `${Character.basePath}/${characterId}/${
+          Quote.basePath
+        }${encodeRequestOptions(options)}`
+      )
       .catch((error: AxiosError) => {
         generateError(error);
       });
     return response?.data;
   }
 
-  async getQuotesByMovie(movieId: string) {
+  async getQuotesByMovie(movieId: string, options?: RequestOptions<QuoteType>) {
     const response = await this.client
-      .get(`${Movie.basePath}/${movieId}/${Quote.basePath}`)
+      .get(
+        `${Movie.basePath}/${movieId}/${Quote.basePath}${encodeRequestOptions(
+          options
+        )}`
+      )
       .catch((error: AxiosError) => {
         generateError(error);
       });

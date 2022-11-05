@@ -2,6 +2,7 @@ import { AxiosError, AxiosInstance } from "axios";
 import { generateError } from "../Error";
 import { ApiResponse } from "../types/ApiResponse";
 import { Chapter as ChapterType } from "../types/Chapter";
+import { encodeRequestOptions, RequestOptions } from "../types/RequestOptions";
 import { Book } from "./Book";
 
 export class Chapter {
@@ -21,18 +22,27 @@ export class Chapter {
     return response?.data.docs[0];
   }
 
-  async catalog(): Promise<ApiResponse<ChapterType[]>> {
+  async catalog(
+    options?: RequestOptions<ChapterType>
+  ): Promise<ApiResponse<ChapterType[]>> {
     const response = await this.client
-      .get(`${Chapter.basePath}`)
+      .get(`${Chapter.basePath}${encodeRequestOptions<ChapterType>(options)}`)
       .catch((error: AxiosError) => {
         generateError(error);
       });
     return response?.data;
   }
 
-  async getChaptersByBook(bookId: string) {
+  async getChaptersByBook(
+    bookId: string,
+    options?: RequestOptions<ChapterType>
+  ) {
     const response = await this.client
-      .get(`${Book.basePath}/${bookId}/${Book.basePath}`)
+      .get(
+        `${Book.basePath}/${bookId}/${
+          Book.basePath
+        }${encodeRequestOptions<ChapterType>(options)}`
+      )
       .catch((error: AxiosError) => {
         generateError(error);
       });
