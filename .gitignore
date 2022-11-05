@@ -105,8 +105,4 @@ dist
 src/ApiClientList.txt
 
 # Build
-/build/compiled
-/index.d.ts
-/lotr-api.d.ts
-/lotr-api.js
-/lotr-api.js.map
+/build

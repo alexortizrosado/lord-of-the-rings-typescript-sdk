@@ -18,7 +18,7 @@ export class Book {
       .catch((error: AxiosError) => {
         generateError(error);
       });
-    return response?.data.docs[0];
+    if (response) return response?.data.docs[0];
   }
 
   async catalog(
@@ -29,6 +29,6 @@ export class Book {
       .catch((error: AxiosError) => {
         generateError(error);
       });
-    return response?.data;
+    if (response) return response?.data;
   }
 }

@@ -20,7 +20,7 @@ export class Quote {
       .catch((error: AxiosError) => {
         generateError(error);
       });
-    return response?.data.docs[0];
+    if (response) return response?.data.docs[0];
   }
 
   async catalog(
@@ -31,7 +31,7 @@ export class Quote {
       .catch((error: AxiosError) => {
         generateError(error);
       });
-    return response?.data;
+    if (response) return response?.data;
   }
 
   async getQuotesByCharacter(
@@ -47,7 +47,7 @@ export class Quote {
       .catch((error: AxiosError) => {
         generateError(error);
       });
-    return response?.data;
+    if (response) return response?.data;
   }
 
   async getQuotesByMovie(movieId: string, options?: RequestOptions<QuoteType>) {
@@ -60,6 +60,6 @@ export class Quote {
       .catch((error: AxiosError) => {
         generateError(error);
       });
-    return response?.data;
+    if (response) return response?.data;
   }
 }

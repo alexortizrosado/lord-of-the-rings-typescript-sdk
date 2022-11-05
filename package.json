@@ -1,17 +1,18 @@
 {
   "name": "@alexortizrosado/lord-of-the-rings-sdk",
-  "version": "2022.00.05",
+  "version": "2022.00.08",
   "description": "Typescript SDK for the The Lord of the Rings API - The One API that rules them all",
   "repository": "https://github.com/alexortizrosado/alexortizrosado-SDK",
   "license": "MIT",
   "author": "Alex Ortiz-Rosado <alexortizrosado@gmail.com>",
   "homepage": "https://the-one-api.dev/",
+  "main": "build/src/LotrApi.js",
   "scripts": {
     "compile": "tsc",
     "clean": "rimraf coverage build tmp",
     "test": "jest --coverage",
     "lint": "eslint \"**/*.ts\"",
-    "build:release": "npm run clean && npm run compile"
+    "build:release": "npm run clean && npm run compile -- -p tsconfig.build.json"
   },
   "dependencies": {
     "@types/node": "^18.11.9",
