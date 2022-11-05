@@ -9,6 +9,7 @@
 import axios, { AxiosInstance } from "axios";
 
 import { Book } from "./services/Book";
+import { Movie } from "./services/Movie";
 
 export type ApiHeaders = {
   Authorization?: string;
@@ -22,7 +23,8 @@ export class LotrApi {
   private serverUrl: string;
   private client: AxiosInstance;
 
-  public readonly Books: Book;
+  public readonly Book: Book;
+  public readonly Movie: Movie;
 
   constructor(acessToken?: string) {
     this.accessToken = acessToken || null;
@@ -32,7 +34,8 @@ export class LotrApi {
       headers: this.getHeaders(),
     });
 
-    this.Books = new Book(this.client);
+    this.Book = new Book(this.client);
+    this.Movie = new Movie(this.client);
   }
 
   private getHeaders(): ApiHeaders {
