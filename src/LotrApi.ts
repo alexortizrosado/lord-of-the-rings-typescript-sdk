@@ -12,6 +12,7 @@ import { Book } from "./services/Book";
 import { Chapter } from "./services/Chapter";
 import { Character } from "./services/Character";
 import { Movie } from "./services/Movie";
+import { Quote } from "./services/Quote";
 
 export type ApiHeaders = {
   Authorization?: string;
@@ -29,6 +30,7 @@ export class LotrApi {
   public readonly Movie: Movie;
   public readonly Chapter: Chapter;
   public readonly Character: Character;
+  public readonly Quote: Quote;
 
   constructor(acessToken?: string) {
     this.accessToken = acessToken || null;
@@ -42,6 +44,7 @@ export class LotrApi {
     this.Movie = new Movie(this.client);
     this.Chapter = new Chapter(this.client);
     this.Character = new Character(this.client);
+    this.Quote = new Quote(this.client);
   }
 
   private getHeaders(): ApiHeaders {
