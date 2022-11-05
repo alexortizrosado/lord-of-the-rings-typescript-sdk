@@ -10,6 +10,7 @@ import axios, { AxiosInstance } from "axios";
 
 import { Book } from "./services/Book";
 import { Chapter } from "./services/Chapter";
+import { Character } from "./services/Character";
 import { Movie } from "./services/Movie";
 
 export type ApiHeaders = {
@@ -27,6 +28,7 @@ export class LotrApi {
   public readonly Book: Book;
   public readonly Movie: Movie;
   public readonly Chapter: Chapter;
+  public readonly Character: Character;
 
   constructor(acessToken?: string) {
     this.accessToken = acessToken || null;
@@ -39,6 +41,7 @@ export class LotrApi {
     this.Book = new Book(this.client);
     this.Movie = new Movie(this.client);
     this.Chapter = new Chapter(this.client);
+    this.Character = new Character(this.client);
   }
 
   private getHeaders(): ApiHeaders {
