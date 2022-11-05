@@ -10,7 +10,7 @@
     "module": "esnext",
     "noEmitOnError": true,
     "lib": ["es2017"],
-    "esModuleInterop": false
+    "esModuleInterop": true
   },
   "include": ["src"]
 }
