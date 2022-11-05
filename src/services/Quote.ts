@@ -1,9 +1,9 @@
 import { ApiResponse } from "../types/ApiResponse";
 import { AxiosError, AxiosInstance } from "axios";
 import { Character } from "./Character";
-import { generateError } from "../Error";
 import { Movie } from "./Movie";
 import { Quote as QuoteType } from "../types/Quote";
+import { generateError } from "../Error";
 import { encodeRequestOptions, RequestOptions } from "../types/RequestOptions";
 
 export class Quote {

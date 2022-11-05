@@ -1,7 +1,7 @@
-import { AxiosError, AxiosInstance } from "axios";
-import { generateError } from "../Error";
 import { ApiResponse } from "../types/ApiResponse";
+import { AxiosError, AxiosInstance } from "axios";
 import { Character as CharacterType } from "../types/Character";
+import { generateError } from "../Error";
 import { encodeRequestOptions, RequestOptions } from "../types/RequestOptions";
 
 export class Character {

@@ -1,9 +1,8 @@
-import { AxiosError, AxiosInstance } from "axios";
-import { RequestOptions } from "../types/RequestOptions";
-import { generateError } from "../Error";
 import { ApiResponse } from "../types/ApiResponse";
+import { AxiosError, AxiosInstance } from "axios";
 import { Book as BookType } from "../types/Book";
-import { encodeRequestOptions } from "../types/RequestOptions";
+import { generateError } from "../Error";
+import { encodeRequestOptions, RequestOptions } from "../types/RequestOptions";
 
 export class Book {
   private readonly client: AxiosInstance;

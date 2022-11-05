@@ -1,8 +1,8 @@
-import { AxiosError, AxiosInstance } from "axios";
-import { generateError } from "../Error";
 import { ApiResponse } from "../types/ApiResponse";
+import { AxiosError, AxiosInstance } from "axios";
 import { Movie as MovieType } from "../types/Movie";
 import { encodeRequestOptions, RequestOptions } from "../types/RequestOptions";
+import { generateError } from "../Error";
 
 export class Movie {
   private readonly client: AxiosInstance;

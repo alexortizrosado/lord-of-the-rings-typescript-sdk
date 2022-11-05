@@ -11,7 +11,7 @@ class UnauthorizedError extends Error {
   }
 }
 
-export const generateError = (error: AxiosError<unknown, any>) => {
+export const generateError = (error: AxiosError) => {
   const statusCode = error.response?.status;
   if (statusCode === 401) {
     const message = "Request requires an access token";
